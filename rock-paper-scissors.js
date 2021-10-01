@@ -1,8 +1,11 @@
+//sets array for computerChoices
 let gameChoices = ["rock", "paper", "scissors"]
 
+//score tracker
 let playerScore = 0;
 let computerScore = 0;
 
+//game logic to declare wins, losses, ties
 function firstRound() {
     let playerChoice = prompt("Rock, paper, or scissors? ")
     let computerChoice = gameChoices[Math.floor(Math.random()*gameChoices.length)];
@@ -11,7 +14,7 @@ function firstRound() {
     console.log(`Computer picked: ${computerChoice}`);
 
     if (playerChoice.toLowerCase() !== "scissors" && playerChoice.toLowerCase() !== "rock"
-    && playerChoice.toLowerCase() !== "paper"){
+            && playerChoice.toLowerCase() !== "paper"){
     prompt("Please select only rock, paper, or scissors.")    
     }
 
@@ -61,13 +64,15 @@ function firstRound() {
     } return result;
 }
 
+ //runs five rounds of game
 function fiveRounds() {
     for (let i = 1; i<= 5; i++) {
         firstRound();
         console.log((`Player score: ${playerScore} Computer score: ${computerScore}`));
     } return (playerScore > computerScore) ? "You win! Refresh the page to play again!" : 
-    (playerScore < computerScore) ? "You lose! Refresh the page to play again!" :
-    "Tie game! Refresh the page to play again!"
+            (playerScore < computerScore) ? "You lose! Refresh the page to play again!" :
+            "Tie game! Refresh the page to play again!"
 }
 
+//runs the game
 console.log(fiveRounds());
